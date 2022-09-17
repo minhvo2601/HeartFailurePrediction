@@ -1,0 +1,203 @@
+<html>
+	<head>
+	<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<title>Heart Disease Test</title>
+	</head>
+	<body>
+	<!-- Java Script -->	
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+		
+		<!-- Navbar-->
+        <div class = "section">
+		<nav class="navbar navbar-dark" style = "background-color:#F1F0F0">
+            <div class = "col-sm-2 text-left">
+            <img class = "img-fluid" src="/images/AA_Zero.png" alt="navbarimage"/>
+        </div>
+            <a class="navbar-brand mb-0 h1 text-black-50" href = "#section1" >
+                <h4 style = "color: #FA6559" >Information</h4>
+            </a>
+            <a class="navbar-brand mb-0 h1 text-black-50" href = "#section2" >
+                <h4 style = "color: #FA6559">Predictor</h4>
+            </a>
+			<a class="navbar-brand mb-0 h1 text-black-50" href = "#section3" >
+                <h4 style = "color: #FA6559">Resources</h4>
+			<a class="navbar-brand mb-0 h1 text-black-50" href = "#section4" >
+                <h4 style = "color: #FA6559">About Us</h4>
+            </a>
+		</nav>
+    </div>
+    <div class="section pl-5" id = "section1">
+        <div class="row">
+          <div class="col-sm-3">
+            <h3>Innovative way to predict and prevent heart failure right from your devices. </h3>
+            <p>We use different machine learning algorithms and analysis of heart disease datasets to create a prediction tool for your heart. 
+                Access personal health forecast, view resources on managing heart diseses, gain insights on a healthier lifestyle. </p>
+          </div>
+          <div class="col-sm-3 justify-content-right">
+            <img class = "img-fluid justify-content-right" src = "/images/phone.png" atl = "phone" align="right" />
+          </div>
+        </div>
+    </div>
+
+		<div class="section pl-5 pb-3" style = "background-color: #F1F0F0;" id = "section2">
+			<br>
+			<!--Form-->
+			<form action = "{{url_for('predict')}}" method ="POST" >
+				<fieldset>
+				<legend class = "text-center border-bottom border-danger">Let's Have a Heart to Heart</legend><br>
+				  <div class="card card-body" >
+					  <div class="form-group  row">
+						<div class="col-sm-3">
+							<label for="age">Age</label>
+							<input type="number" class="form-control" id="age" name="age" required>
+						</div>
+						<div class="col-sm-3">
+							<label for="sex">Gender</label>
+							<select class="form-control" id="sex"  name="gender" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">Male</option>
+							  <option value = "1">Female</option>
+							</select>
+					   </div>
+					  </div>
+					  <br>
+					  <div class="form-group  row">
+						  <div class="col-sm">
+							<label for="cp">Chest Pain Type</label>
+							<select class="form-control" id="cp" name = "cp" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">Typical Angina</option>
+							  <option value = "1">Atypical Angina</option>
+							  <option value = "2">Non-anginal Pain</option>
+							  <option value = "3">Asymptomatic</option>
+							</select>
+						  </div>
+						  <div class="col-sm">
+							<label for="trestbps">Resting Blood Pressure in mm Hg</label>
+							<input type="number" class="form-control" id="trestbps" name="trestbps"  required>
+						  </div>
+						  <div class="col-sm">
+							<label for="chol">Serum Cholestoral in mg/dl</label>
+							<input type="number" class="form-control" id="chol" name="chol" required>
+						  </div>
+						  <div class="col-sm">
+							<label for="fbs">Fasting Blood Sugar > 120 mg/dl</label>
+							<select class="form-control" id="fbs" name="fbs" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">False</option>
+							  <option value = "1">True</option>
+							</select>
+						</div>
+					  </div>
+					  
+					  <br>
+					  <div class="form-group row">
+							<div class="col-sm">
+								<label for="restecg">Resting ECG Results </label>
+								<select class="form-control" id="restecg" name="restecg" required>
+								  <option disabled selected value> -- Select an Option -- </option>
+								  <option value = "0">Normal</option>
+								  <option value = "1">Having ST-T wave abnormality  </option>
+								  <option value = "2"> Probable or definite left ventricular hypertrophy  </option>
+								</select>
+							  </div>
+							  <div class="col-sm">
+								<label for="thalach">Maximum Heart Rate (Value between 60 and  202)</label>
+								<input type="number" class="form-control" id="thalach" name="thalach" required>
+							  </div>
+							  <div class="col-sm">
+								<label for="exang">Exercise Induced Angina </label>
+								<select class="form-control" id="oldpeak" name="oldpeak" required>
+								  <option disabled selected value> -- Select an Option -- </option>
+								  <option value = "0">No</option>
+								  <option value = "1">Yes</option>
+								</select>
+							  </div>
+						  </div>
+                          <div class="col-sm-3">
+							<label for="peak">Old Peak</label>
+							<input type="decimal" class="form-control" id="peak" name="peak" required>
+						</div>
+						  <br>
+						  <div class="form-group  row">
+						  <div class="col-sm">
+							<label for="slope">Slope of the Peak Exercise ST Segment </label>
+							<select class="form-control" id="slope" name="slope" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">Upsloping</option>
+							  <option value = "1">Flat</option>
+							  <option value = "2">Downsloping</option>
+							</select>
+						  </div>
+
+					  </div>
+					  <br>
+					  <div class="form-group">
+						<input class="btn btn-danger" type="submit" value="Predict!">
+					  </div>
+					  
+					  <!--Prediction Result-->
+					  <div id ="result">
+							<strong style="color:red">{{result}}</strong>
+					 </div>
+				     </div>
+			 </fieldset>
+			</form>
+			
+		</div>
+
+        <div class = "section pl-5 pt-2" id = "section3">
+            <h5 class = "text-center border-bottom border-dark border-3 pb-2">Read More about the Heart</h5>
+            <div class = "row justify-content-center">
+                <div class = "col-sm-2 pt-5">
+                    <a href = "https://www.healthline.com/nutrition/heart-healthy-foods#TOC_TITLE_HDR_2">
+                     <img class = "img-fluid" src = "/images/resource1.jpg" width="600" height="600"/> 
+                    </a>
+                    <p>10 mins read</p>
+                    <h4 class = "text-black font-weight-bold">15 Incredibly Heart-Healthy Foods</h4>
+                    <p>Looking for food that are good for your heart?</p>
+                </div>
+                <div class = "col-sm-2 justify-content-lg-end pt-5 pl-lg-5">
+                    <a href = "https://www.scripps.org/news_items/5146-5-heart-healthy-habits" >
+                     <img class = "img-fluid" src = "/images/resource2.jpg" width="600" height="600" />
+                    </a>
+                    <P>3 mins read</P>
+                    <h4 class = "text-black font-weight-bold">5 Heart Healthy Habits</h4>
+                    <p>Prevention is the key to keeping your heart in top shape and pumping the way that it should</p>
+                </div>
+            </div>
+        </div>
+
+        <div class = "section pl-5" style = "background-color: #FCF4EA;"id = "section4">
+            <h2 class = "text-center" style = "color: #FA6559;">About Us</h2>
+            <div class = "row justify-content-center">
+            <div class = "col-sm-2">
+                <a href = "https://github.com/mngngc">
+                <img class = "img-fluid " src="/images/Mary.png" width="255"  alt="Mary"/>
+            </a>
+                <p class = "text-md-center text-black">Ngoc Nguyen</p>
+            </div>
+            <div class = "col-sm-2">
+                <a href = "https://github.com/SanaR511">
+                <img class = "img-fluid" src="/images/Sana.png" width="255" alt="Sana"/>
+            </a>
+                <p class = "text-md-center text-black">Sana Ranshid</p>                
+            </div>
+            <div class = "col-sm-2">
+                <a href = "https://github.com/minhvo2601">
+                <img class = "img-fluid " src="/images/Megan.png" width="255" alt="Megan"/>
+            </a>
+                <p class = "text-md-center text-black">Megan Vo</p>
+            </div>
+        </div>
+        </div>
+		
+	</body>
+</html>
